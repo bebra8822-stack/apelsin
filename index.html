@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Апельсин — сауна, баня и гостиница в Астрахани</title>
+<meta name="description" content="Гостиничный комплекс «Апельсин» в Астрахани: русская парная и финская сауна, крытый бассейн с подогревом, бильярд, караоке и 13 номеров от 1 500 ₽. Круглосуточно, Социалистическая, 8.">
+<meta property="og:title" content="Апельсин — сауна, баня и гостиница в Астрахани">
+<meta property="og:description" content="Парная, бассейн с подогревом, бильярд, караоке. Номера от 1 500 ₽. Круглосуточно.">
+<meta property="og:image" content="https://bebra8822-stack.github.io/apelsin/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#15100c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#15100c; --bg-2:#1e1712; --card:#241b15; --line:#3a2c22;
+    --orange:#ff8a1f; --orange-2:#ffb15c; --text:#f5ece3; --muted:#b4a293;
+    --light:#fbf6f0; --ink:#2a1d14; --ink-muted:#7a6656; --light-line:#ecdfd2;
+    --r:20px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:Unbounded,system-ui,sans-serif;font-weight:600;line-height:1.12;letter-spacing:-.01em}
+  h2{font-size:clamp(28px,4vw,44px);margin-bottom:14px}
+  h2 span,h1 span{color:var(--orange)}
+  .tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+  .tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
+  .lead{font-size:18px;color:var(--muted);max-width:620px}
+  section{padding:96px 0}
+  .light{background:var(--light);color:var(--ink)}
+  .light .lead{color:var(--ink-muted)}
+  .light h2,.light h3{color:var(--ink)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 26px;border-radius:999px;font-weight:800;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s,background .15s,box-shadow .15s;font-family:inherit}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-orange{background:var(--orange);color:#1a0d02;box-shadow:0 10px 26px rgba(255,138,31,.35)}
+  .btn-orange:hover{background:var(--orange-2)}
+  .btn-ghost{background:rgba(255,255,255,.08);color:var(--text);border:1px solid rgba(255,255,255,.25)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn svg{width:18px;height:18px}
+
+  /* header */
+  header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s}
+  header.solid{background:rgba(21,16,12,.95);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Unbounded,sans-serif;font-weight:700;font-size:20px}
+  .logo i{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--orange-2),var(--orange) 60%,#d96a00);position:relative;flex:0 0 30px}
+  .logo i::after{content:"";position:absolute;top:-5px;left:15px;width:10px;height:7px;background:#5fae4d;border-radius:0 10px 0 10px;transform:rotate(-20deg)}
+  .menu{display:flex;gap:26px;list-style:none}
+  .menu a{text-decoration:none;font-weight:600;font-size:15px;color:var(--muted);transition:color .15s}
+  .menu a:hover{color:var(--orange)}
+  .nav-r{display:flex;align-items:center;gap:14px}
+  .nav-phone{text-decoration:none;font-weight:800}
+  .nav .btn{padding:11px 18px;font-size:14px}
+
+  /* hero */
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 64px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url(img/pool.jpg) center 55%/cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,16,12,.55) 0%,rgba(21,16,12,.35) 35%,rgba(21,16,12,.92) 85%,var(--bg) 100%)}
+  .hero .wrap{position:relative;z-index:1;width:100%}
+  .badge{display:inline-flex;align-items:center;gap:10px;background:rgba(21,16,12,.6);border:1px solid rgba(255,255,255,.18);padding:8px 16px;border-radius:999px;font-size:14px;font-weight:700;margin-bottom:22px;backdrop-filter:blur(8px)}
+  .badge b{color:var(--orange-2)}
+  .hero h1{font-size:clamp(36px,6.4vw,76px);max-width:900px}
+  .hero p{font-size:clamp(17px,2vw,20px);color:#e4d6c8;max-width:600px;margin:20px 0 30px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+  .stat{background:rgba(36,27,21,.75);border:1px solid var(--line);border-radius:16px;padding:16px 18px;backdrop-filter:blur(8px)}
+  .stat b{display:block;font-family:Unbounded,sans-serif;font-size:22px;color:#fff}
+  .stat span{font-size:13.5px;color:var(--muted)}
+
+  /* two ways */
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+  .way{position:relative;border-radius:var(--r);overflow:hidden;min-height:440px;display:flex;align-items:flex-end;text-decoration:none;color:#fff;isolation:isolate}
+  .way img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s}
+  .way::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(21,16,12,.92));z-index:-1}
+  .way:hover img{transform:scale(1.05)}
+  .way .in{padding:28px}
+  .way h3{font-size:28px;margin-bottom:6px}
+  .way p{color:#e4d6c8;font-size:15.5px;margin-bottom:14px}
+  .way .price{display:inline-block;background:var(--orange);color:#1a0d02;font-weight:800;padding:6px 14px;border-radius:999px;font-size:14px}
+
+  /* sauna */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:240px 240px;gap:12px}
+  .mosaic img{width:100%;height:100%;object-fit:cover;border-radius:16px;cursor:zoom-in}
+  .mosaic .tall{grid-row:span 2}
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0 32px}
+  .feat div{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .feat .ic{width:36px;height:36px;border-radius:10px;background:rgba(255,138,31,.15);display:grid;place-items:center;flex:0 0 36px;font-size:18px}
+  .feat b{display:block;font-size:15px}
+  .feat span{font-size:13.5px;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+  .chip{border:1px solid var(--line);background:var(--bg-2);padding:7px 14px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--text)}
+
+  /* rooms */
+  .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  .room{background:#fff;border:1px solid var(--light-line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+  .room:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(42,29,20,.1)}
+  .room img{aspect-ratio:4/3;object-fit:cover;width:100%;cursor:zoom-in}
+  .room .b{padding:22px;flex:1;display:flex;flex-direction:column}
+  .room h3{font-size:20px;margin-bottom:6px}
+  .room p{color:var(--ink-muted);font-size:15px;flex:1}
+  .room .row{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--light-line)}
+  .room .pr{font-family:Unbounded,sans-serif;font-weight:600;font-size:20px;color:var(--ink)}
+  .room .pr small{font-family:Manrope,sans-serif;font-size:13px;color:var(--ink-muted);font-weight:600}
+  .room a{color:#d96a00;font-weight:800;text-decoration:none;font-size:14.5px}
+  .amen{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .amen span{background:#fff;border:1px solid var(--light-line);padding:8px 14px;border-radius:999px;font-weight:600;font-size:14px}
+
+  /* prices */
+  .tabs{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px;margin-top:30px;flex-wrap:wrap}
+  .tabs button{border:0;background:transparent;color:var(--muted);font:inherit;font-weight:800;font-size:14.5px;padding:10px 20px;border-radius:999px;cursor:pointer}
+  .tabs button.on{background:var(--orange);color:#1a0d02}
+  .plist{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .plist[hidden]{display:none}
+  .prow{display:flex;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line);align-items:center}
+  .prow:last-child{border-bottom:0}
+  .prow b{font-size:16.5px}
+  .prow small{display:block;color:var(--muted);font-size:13.5px}
+  .prow .p{font-family:Unbounded,sans-serif;font-weight:600;color:var(--orange-2);white-space:nowrap}
+  .pnote{color:var(--muted);font-size:13.5px;margin-top:14px}
+
+  /* events */
+  .events{position:relative;overflow:hidden}
+  .events-card{display:grid;grid-template-columns:1.1fr 1fr;background:linear-gradient(135deg,#3a1f0c,#241b15 70%);border:1px solid var(--line);border-radius:28px;overflow:hidden}
+  .events-card .t{padding:56px}
+  .events-card img{width:100%;height:100%;object-fit:cover;min-height:380px}
+  .elist{list-style:none;display:grid;gap:10px;margin:24px 0 32px}
+  .elist li{display:flex;gap:12px;align-items:center;font-weight:600}
+  .elist li::before{content:"🍊";font-size:16px}
+
+  /* reviews */
+  .rhead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+  .score{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--light-line);border-radius:18px;padding:14px 20px}
+  .score b{font-family:Unbounded,sans-serif;font-size:40px;line-height:1;color:var(--ink)}
+  .stars{color:var(--orange);letter-spacing:2px}
+  .score small{display:block;color:var(--ink-muted);font-size:13px}
+  .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+  .rv{background:#fff;border:1px solid var(--light-line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px}
+  .rv p{flex:1;font-size:15.5px}
+  .who{display:flex;align-items:center;gap:12px;font-weight:800}
+  .ava{width:40px;height:40px;border-radius:50%;background:var(--orange);color:#1a0d02;display:grid;place-items:center}
+  .who small{display:block;font-weight:600;color:var(--ink-muted);font-size:12.5px}
+
+  /* booking */
+  .bgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .contacts{list-style:none;display:grid;gap:12px;margin-top:28px}
+  .contacts li{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+  .contacts .ci{width:42px;height:42px;border-radius:12px;background:rgba(255,138,31,.15);display:grid;place-items:center;flex:0 0 42px}
+  .contacts .ci svg{width:20px;height:20px;stroke:var(--orange)}
+  .contacts small{display:block;color:var(--muted);font-size:12.5px}
+  .contacts a,.contacts b{font-weight:800;text-decoration:none;font-size:16.5px}
+  form{background:var(--light);color:var(--ink);border-radius:24px;padding:32px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+  form h3{font-size:24px;margin-bottom:4px}
+  form .sub{color:var(--ink-muted);font-size:14.5px;margin-bottom:20px}
+  .seg{display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--light-line);border-radius:14px;padding:4px;margin-bottom:18px}
+  .seg button{border:0;background:transparent;font:inherit;font-weight:800;padding:11px;border-radius:10px;cursor:pointer;color:var(--ink-muted)}
+  .seg button.on{background:var(--orange);color:#1a0d02}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field{margin-bottom:14px}
+  .field[hidden]{display:none}
+  label{display:block;font-size:13px;font-weight:800;color:var(--ink-muted);margin-bottom:6px}
+  input,select,textarea{width:100%;padding:13px 14px;border:1.5px solid var(--light-line);border-radius:12px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--orange)}
+  textarea{resize:vertical;min-height:72px}
+  form .btn{width:100%;margin-top:6px;padding:16px}
+  .fine{font-size:12.5px;color:var(--ink-muted);text-align:center;margin-top:12px}
+
+  /* map */
+  .map{display:grid;grid-template-columns:1fr 1.4fr;gap:36px;align-items:center}
+  .map iframe{width:100%;height:380px;border:0;border-radius:var(--r)}
+  .route{display:grid;gap:12px;margin:22px 0}
+  .route div{display:flex;gap:12px;color:var(--ink-muted)}
+  .route b{color:var(--ink)}
+
+  footer{background:#0f0b08;color:var(--muted);padding:36px 0 100px;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+
+  .mbar{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:rgba(36,27,21,.96);border:1px solid var(--line);border-radius:18px;padding:8px;gap:8px;backdrop-filter:blur(10px)}
+  .mbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;font-size:12px;font-weight:800;padding:8px 4px;border-radius:12px;color:var(--text)}
+  .mbar a.main{background:var(--orange);color:#1a0d02}
+  .mbar svg{width:20px;height:20px}
+
+  .lb{position:fixed;inset:0;background:rgba(10,7,5,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+  .lb.open{display:flex}
+  .lb img{max-height:90vh;max-width:95vw;border-radius:12px}
+  .lb button{position:absolute;top:14px;right:20px;background:none;border:0;color:#fff;font-size:42px;cursor:pointer}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:980px){
+    .menu{display:none}
+    .split,.bgrid,.map,.events-card{grid-template-columns:1fr;gap:36px}
+    .events-card .t{padding:36px 24px}
+    .rooms,.rgrid{grid-template-columns:1fr 1fr}
+    .stats{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    section{padding:70px 0}
+    .wrap{padding:0 16px}
+    .nav-phone,.nav .btn{display:none}
+    .ways,.rooms,.rgrid,.feat,.row2{grid-template-columns:1fr}
+    .way{min-height:340px}
+    .mosaic{grid-template-rows:180px 180px}
+    .prow{padding:16px 18px}
+    form{padding:22px}
+    .mbar{display:flex}
+    .stat b{font-size:19px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="logo"><i></i>Апельсин</a>
+    <ul class="menu">
+      <li><a href="#sauna">Сауна</a></li>
+      <li><a href="#rooms">Номера</a></li>
+      <li><a href="#prices">Цены</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <div class="nav-r">
+      <a class="nav-phone" href="tel:+79678296496">+7 967 829‑64‑96</a>
+      <a class="btn btn-orange" href="#booking">Забронировать</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="badge"><span class="stars">★★★★★</span> <b>4,6</b> · 124 оценки в 2ГИС</div>
+    <h1>Сауна, баня и гостиница <span>в центре Астрахани</span></h1>
+    <p>Жаркая парная, тёплый крытый бассейн, бильярд и караоке для компании до 15 человек. А если не хочется уезжать, уютные номера на этаже выше.</p>
+    <div class="hero-actions">
+      <a class="btn btn-orange" href="#booking">Забронировать</a>
+      <a class="btn btn-ghost" href="tel:+79678296496">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        Позвонить
+      </a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>24/7</b><span>работаем круглосуточно</span></div>
+      <div class="stat"><b>до 15</b><span>гостей в сауне</span></div>
+      <div class="stat"><b>13</b><span>номеров в гостинице</span></div>
+      <div class="stat"><b>от 1 500 ₽</b><span>номер или час сауны</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:40px">
+  <div class="wrap">
+    <span class="tag">Два формата</span>
+    <h2>Попариться или <span>остаться на ночь</span></h2>
+    <div class="ways">
+      <a class="way reveal" href="#sauna">
+        <img src="img/steam.jpg" alt="Парная" loading="lazy">
+        <div class="in"><h3>Сауна и баня</h3><p>Почасовая аренда для компании: парная, бассейн, бильярд, караоке.</p><span class="price">от 1 500 ₽ / час</span></div>
+      </a>
+      <a class="way reveal" href="#rooms">
+        <img src="img/room-comfort.jpg" alt="Номер гостиницы" loading="lazy">
+        <div class="in"><h3>Гостиница</h3><p>13 номеров с кондиционером, своя парковка, рядом остановка.</p><span class="price">от 1 500 ₽ / сутки</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="sauna">
+  <div class="wrap split">
+    <div class="mosaic reveal">
+      <img class="tall" src="img/pool-night.jpg" alt="Бассейн с подсветкой" loading="lazy">
+      <img src="img/sauna.jpg" alt="Финская сауна" loading="lazy">
+      <img src="img/billiard.jpg" alt="Бильярд" loading="lazy">
+    </div>
+    <div class="reveal">
+      <span class="tag">Сауна и баня</span>
+      <h2>Всё для отдыха <span>компанией</span></h2>
+      <p class="lead">Дни рождения, встречи с друзьями или просто попариться после рабочей недели. Сауна бронируется только для вашей компании.</p>
+      <div class="feat">
+        <div><span class="ic">🔥</span><span><b>Две парные</b><span>Русская и финская</span></span></div>
+        <div><span class="ic">🌊</span><span><b>Крытый бассейн</b><span>С подогревом, 7 метров</span></span></div>
+        <div><span class="ic">🎱</span><span><b>Бильярд и теннис</b><span>Игровая на нижнем этаже</span></span></div>
+        <div><span class="ic">🎤</span><span><b>Караоке и танцпол</b><span>Большой зал со столом</span></span></div>
+      </div>
+      <div class="chips">
+        <span class="chip">Джакузи</span><span class="chip">Купели</span><span class="chip">Комната отдыха</span><span class="chip">Веники</span><span class="chip">Полотенца и простыни</span><span class="chip">Тапочки</span><span class="chip">Чай</span><span class="chip">Wi‑Fi</span>
+      </div>
+      <a class="btn btn-orange" href="#booking" data-kind="sauna">Забронировать сауну</a>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="rooms">
+  <div class="wrap">
+    <span class="tag">Гостиница</span>
+    <h2>Номера <span>для спокойного сна</span></h2>
+    <p class="lead">Остановиться в командировке, переночевать после праздника или приехать в Астрахань на пару дней. Все номера с кондиционером.</p>
+    <div class="rooms">
+      <article class="room reveal">
+        <img src="img/room-twin.jpg" alt="Номер Эконом" loading="lazy">
+        <div class="b"><h3>Эконом</h3><p>Две раздельные кровати. Для тех, кому нужно просто хорошо выспаться.</p>
+          <div class="row"><span class="pr">1 500 ₽ <small>/ сутки</small></span><a href="#booking" data-kind="room" data-room="Эконом">Забронировать →</a></div></div>
+      </article>
+      <article class="room reveal">
+        <img src="img/room-std.jpg" alt="Номер Стандарт" loading="lazy">
+        <div class="b"><h3>Стандарт</h3><p>Двуспальная кровать, всё необходимое для отдыха и поездки.</p>
+          <div class="row"><span class="pr">от 1 500 ₽ <small>/ сутки</small></span><a href="#booking" data-kind="room" data-room="Стандарт">Забронировать →</a></div></div>
+      </article>
+      <article class="room reveal">
+        <img src="img/room-comfort.jpg" alt="Номер Комфорт" loading="lazy">
+        <div class="b"><h3>Комфорт</h3><p>Просторный номер с большим шкафом. Для пары или долгого проживания.</p>
+          <div class="row"><span class="pr">2 500 ₽ <small>/ сутки</small></span><a href="#booking" data-kind="room" data-room="Комфорт">Забронировать →</a></div></div>
+      </article>
+    </div>
+    <div class="amen">
+      <span>❄️ Кондиционер</span><span>🚗 Своя парковка</span><span>🧺 Стирка и глажка</span><span>📶 Wi‑Fi</span><span>🍢 Беседка и мангал</span><span>🕐 Заселение круглосуточно</span>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="wrap">
+    <span class="tag">Цены</span>
+    <h2>Честные цены <span>без сюрпризов</span></h2>
+    <p class="lead">Все цены на одной странице, чтобы вы знали стоимость ещё до звонка.</p>
+    <div class="tabs" role="tablist">
+      <button class="on" data-tab="p-sauna" role="tab">Сауна</button>
+      <button data-tab="p-rooms" role="tab">Номера</button>
+      <button data-tab="p-extra" role="tab">Услуги</button>
+    </div>
+    <div class="plist" id="p-sauna">
+      <div class="prow"><div><b>Баня на дровах</b><small>Почасовая аренда комплекса</small></div><span class="p">1 500 ₽ / час</span></div>
+      <div class="prow"><div><b>Сауна «Апельсин»</b><small>Парная, бассейн, бильярд, караоке</small></div><span class="p">2 000 ₽ / час</span></div>
+      <div class="prow"><div><b>Бассейн</b><small>С человека</small></div><span class="p">300 ₽ / час</span></div>
+    </div>
+    <div class="plist" id="p-rooms" hidden>
+      <div class="prow"><div><b>Эконом</b><small>Две раздельные кровати</small></div><span class="p">1 500 ₽</span></div>
+      <div class="prow"><div><b>Стандарт</b><small>Двуспальная кровать</small></div><span class="p">1 500–1 700 ₽</span></div>
+      <div class="prow"><div><b>Комфорт</b><small>Просторный номер</small></div><span class="p">2 500 ₽</span></div>
+    </div>
+    <div class="plist" id="p-extra" hidden>
+      <div class="prow"><div><b>Мангал с шампурами</b><small>Беседка на территории</small></div><span class="p">300 ₽</span></div>
+      <div class="prow"><div><b>Стирка вещей</b></div><span class="p">200 ₽</span></div>
+      <div class="prow"><div><b>Глажка вещей</b></div><span class="p">100 ₽</span></div>
+    </div>
+    <p class="pnote">Цены указаны по данным комплекса. Точную стоимость на вашу дату подтвердит администратор.</p>
+  </div>
+</section>
+
+<section class="events">
+  <div class="wrap">
+    <div class="events-card reveal">
+      <div class="t">
+        <span class="tag">Праздники</span>
+        <h2>Отметить <span>с жаром</span></h2>
+        <p class="lead">Самый частый повод к нам приехать — день рождения. Большой зал, стол на всю компанию, караоке и бассейн. А после праздника можно остаться в номере.</p>
+        <ul class="elist">
+          <li>Дни рождения и юбилеи</li>
+          <li>Встречи друзей и коллег</li>
+          <li>Компании до 15 человек</li>
+          <li>Номер на ночь после праздника</li>
+        </ul>
+        <a class="btn btn-orange" href="#booking" data-kind="sauna">Забронировать праздник</a>
+      </div>
+      <img src="img/hall2.jpg" alt="Зал для компании" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="light" id="reviews">
+  <div class="wrap">
+    <div class="rhead">
+      <div><span class="tag">Отзывы</span><h2>Гости <span>возвращаются</span></h2></div>
+      <div class="score"><b>4,6</b><div><span class="stars">★★★★★</span><small>124 оценки в 2ГИС</small></div></div>
+    </div>
+    <div class="rgrid">
+      <div class="rv reveal"><span class="stars">★★★★★</span><p>Сауна отличная, номера просто шикарные и чистые, очень клёвый отель. Очень много раз отмечала здесь праздники с друзьями.</p><div class="who"><span class="ava">А</span><div>Анжела В.<small>2ГИС</small></div></div></div>
+      <div class="rv reveal"><span class="stars">★★★★★</span><p>Отметили на выходных мой день рождения. Всем очень понравилось: отношение к гостям, номера, джакузи, а особенно русская парная на дровах, а после неё бассейн. Потом караоке.</p><div class="who"><span class="ava">А</span><div>Александр М.<small>2ГИС</small></div></div></div>
+      <div class="rv reveal"><span class="stars">★★★★★</span><p>На выходные сняли сауну на 4 часа, время пролетело незаметно. Большой зал, где можно потанцевать, бассейн на 6 человек, если не больше, парилка отличная.</p><div class="who"><span class="ava">Т</span><div>Татьяна Щ.<small>2ГИС</small></div></div></div>
+      <div class="rv reveal"><span class="stars">★★★★★</span><p>На день рождения выбрала эту сауну и ни разу не пожалела. Парилка то что надо, большой зал, две комнаты внизу и бильярд. Два часа не выгнать оттуда!</p><div class="who"><span class="ava">Л</span><div>Ляйсан Б.<small>2ГИС</small></div></div></div>
+      <div class="rv reveal"><span class="stars">★★★★★</span><p>Отличный гостевой дом. Остановились в четырёхместном номере, очень дружелюбный персонал, чистые и уютные комнаты. Остались в восторге!</p><div class="who"><span class="ava">А</span><div>Анастасия Ц.<small>2ГИС</small></div></div></div>
+      <div class="rv reveal"><span class="stars">★★★★★</span><p>Останавливались в номере, хороший и уютный, есть всё необходимое, своя парковка, приветливый персонал. Спасибо!</p><div class="who"><span class="ava">Ю</span><div>Юрий Г.<small>2ГИС</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="wrap bgrid">
+    <div class="reveal">
+      <span class="tag">Бронирование</span>
+      <h2>Забронируйте <span>за минуту</span></h2>
+      <p class="lead">Выберите сауну или номер, дату и время. Заявка придёт администратору, он подтвердит бронь.</p>
+      <ul class="contacts" id="contacts">
+        <li><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><div><small>Телефон, круглосуточно</small><a href="tel:+79678296496">+7 967 829‑64‑96</a></div></li>
+        <li><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><div><small>Второй номер</small><a href="tel:+79881729943">+7 988 172‑99‑43</a></div></li>
+        <li><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></span><div><small>WhatsApp</small><a href="https://wa.me/79678296496" target="_blank" rel="noopener">Написать в WhatsApp</a></div></li>
+        <li><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><small>Адрес</small><b>Социалистическая, 8</b></div></li>
+      </ul>
+    </div>
+
+    <form id="bookForm" class="reveal">
+      <h3>Заявка на бронь</h3>
+      <p class="sub">Администратор ответит и подтвердит время</p>
+      <div class="seg" role="tablist">
+        <button type="button" class="on" data-k="sauna">🔥 Сауна</button>
+        <button type="button" data-k="room">🛏 Номер</button>
+      </div>
+      <div class="field" data-for="sauna"><label for="sType">Что бронируем</label>
+        <select id="sType"><option>Сауна «Апельсин»</option><option>Баня на дровах</option><option>Пока не знаю, подскажите</option></select>
+      </div>
+      <div class="field" data-for="room" hidden><label for="rType">Номер</label>
+        <select id="rType"><option>Эконом</option><option selected>Стандарт</option><option>Комфорт</option></select>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="date" id="dateLbl">Дата</label><input id="date" type="date" required></div>
+        <div class="field" data-for="sauna"><label for="time">Время начала</label><input id="time" type="time" value="18:00"></div>
+        <div class="field" data-for="room" hidden><label for="to">Дата выезда</label><input id="to" type="date"></div>
+      </div>
+      <div class="row2">
+        <div class="field" data-for="sauna"><label for="hours">Сколько часов</label>
+          <select id="hours"><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6+</option></select>
+        </div>
+        <div class="field"><label for="guests">Гостей</label>
+          <select id="guests"><option>1</option><option selected>2</option><option>3–5</option><option>6–10</option><option>11–15</option></select>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="name">Имя</label><input id="name" required placeholder="Как к вам обращаться"></div>
+        <div class="field"><label for="phone">Телефон</label><input id="phone" type="tel" required placeholder="+7 (___) ___-__-__"></div>
+      </div>
+      <div class="field"><label for="comment">Комментарий</label><textarea id="comment" placeholder="Например: день рождения, нужен стол на 10 человек"></textarea></div>
+      <button class="btn btn-orange" type="submit">Отправить заявку</button>
+      <p class="fine">Заявка откроется в WhatsApp с готовым текстом, останется нажать «Отправить».</p>
+    </form>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap map">
+    <div>
+      <span class="tag">Как добраться</span>
+      <h2>Социалистическая, <span>8</span></h2>
+      <div class="route">
+        <div>🚌 <span><b>Остановка «Августовская»</b>, 5 минут пешком</span></div>
+        <div>🚗 <span><b>Своя парковка</b> у входа</span></div>
+        <div>🕐 <span><b>Круглосуточно</b>, без выходных</span></div>
+      </div>
+      <a class="btn btn-dark" href="https://yandex.ru/maps/?text=%D0%90%D1%81%D1%82%D1%80%D0%B0%D1%85%D0%B0%D0%BD%D1%8C%2C%20%D0%A1%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%208" target="_blank" rel="noopener">Построить маршрут</a>
+    </div>
+    <iframe title="Карта: Апельсин, Социалистическая, 8" loading="lazy" src="https://yandex.ru/map-widget/v1/?text=%D0%90%D1%81%D1%82%D1%80%D0%B0%D1%85%D0%B0%D0%BD%D1%8C%2C%20%D0%A1%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%208&z=16"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#" class="logo" style="color:var(--text)"><i></i>Апельсин</a>
+    <div>Социалистическая ул., 8, Астрахань · <a href="tel:+79678296496" style="color:var(--text);text-decoration:none">+7 967 829‑64‑96</a> · круглосуточно</div>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Быстрые действия">
+  <a href="tel:+79678296496"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Позвонить</a>
+  <a href="https://wa.me/79678296496" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>WhatsApp</a>
+  <a class="main" href="#booking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Бронь</a>
+</nav>
+
+<div class="lb" id="lb"><button aria-label="Закрыть">×</button><img alt=""></div>
+
+<script>
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('solid', scrollY > 40);
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const lb = document.getElementById('lb'), lbImg = lb.querySelector('img');
+  document.querySelectorAll('.mosaic img, .room img').forEach(img => img.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open'); }));
+  lb.addEventListener('click', () => lb.classList.remove('open'));
+  addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
+    document.querySelectorAll('.plist').forEach(p => p.hidden = p.id !== b.dataset.tab);
+  }));
+
+  let kind = 'sauna';
+  const setKind = k => {
+    kind = k;
+    document.querySelectorAll('.seg button').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+    document.querySelectorAll('[data-for]').forEach(f => f.hidden = f.dataset.for !== k);
+    document.getElementById('dateLbl').textContent = k === 'room' ? 'Дата заезда' : 'Дата';
+  };
+  document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => setKind(b.dataset.k)));
+  document.querySelectorAll('[data-kind]').forEach(a => a.addEventListener('click', () => {
+    setKind(a.dataset.kind);
+    if (a.dataset.room) document.getElementById('rType').value = a.dataset.room;
+  }));
+
+  const today = new Date().toISOString().slice(0,10);
+  const date = document.getElementById('date'), to = document.getElementById('to');
+  date.min = today; to.min = today;
+  date.addEventListener('change', () => { to.min = date.value; if (to.value && to.value < date.value) to.value = date.value; });
+
+  const fmt = d => d ? d.split('-').reverse().join('.') : '';
+  document.getElementById('bookForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    const lines = ['Здравствуйте! Заявка с сайта «Апельсин».', ''];
+    if (kind === 'sauna') {
+      lines.push('Бронь: ' + v('sType'), 'Дата: ' + fmt(v('date')) + ', с ' + v('time'), 'Часов: ' + v('hours'));
+    } else {
+      lines.push('Номер: ' + v('rType'), 'Заезд: ' + fmt(v('date')) + (v('to') ? ', выезд: ' + fmt(v('to')) : ''));
+    }
+    lines.push('Гостей: ' + v('guests'), 'Имя: ' + v('name'), 'Телефон: ' + v('phone'));
+    if (v('comment')) lines.push('Комментарий: ' + v('comment'));
+    window.open('https://wa.me/79678296496?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+  });
+</script>
+</body>
+</html>
